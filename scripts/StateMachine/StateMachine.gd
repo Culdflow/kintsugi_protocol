@@ -2,6 +2,8 @@ extends Node
 class_name StateMachine
 
 @export var initial_state: State
+@export var animPlayer: AnimationPlayer
+@export var player: Player_sc
 
 var current_state: State
 var states: Dictionary = {}
@@ -13,6 +15,8 @@ func _ready():
 	if initial_state:
 		initial_state._enter()
 		current_state = initial_state
+		animPlayer.play(current_state.name.to_lower())
+		player.play_limbs_anim(current_state.name.to_lower())
 
 func _process(delta: float) -> void:
 	if current_state:
@@ -32,3 +36,6 @@ func _on_child_transition(state, new_state_name):
 		current_state._exit()
 	new_state._enter()
 	current_state = new_state
+	animPlayer.stop()
+	animPlayer.play(current_state.name.to_lower())
+	player.play_limbs_anim(current_state.name.to_lower())

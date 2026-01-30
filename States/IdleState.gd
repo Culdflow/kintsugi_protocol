@@ -1,7 +1,6 @@
 extends State
 class_name IdleState
 
-@export var player: Player_sc
 
 func _enter():
 	print("[ENTERED]: Idle state")

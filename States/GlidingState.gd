@@ -4,7 +4,6 @@ class_name glidingstate
 const gravity_speed_MAX = 500
 @export var gravity_speed = 0
 @export var gravity_speed_addr = 50
-@export var player: Player_sc
 @export var player_speed: int
 
 func _enter():
@@ -22,7 +21,5 @@ func _update(_delta: float):
 		Transitioned.emit(self, "runningstate")
 	elif (player.velocity.x == 0):
 		Transitioned.emit(self, "fallingstate")
-	player.velocity.y += gravity_speed * _delta
-	gravity_speed += gravity_speed_addr
 	player.velocity.x = (Input.get_action_strength("right") - Input.get_action_strength("left")) * player_speed
 	
