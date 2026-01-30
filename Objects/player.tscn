@@ -79,23 +79,23 @@ animPlayer = NodePath("../AnimationPlayer")
 player = NodePath("..")
 metadata/_custom_type_script = "uid://dqnn5kxwvf0q7"
 
-[node name="RunningState" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
+[node name="RunningState" type="Node" parent="StateMachine" unique_id=360898587 node_paths=PackedStringArray("player")]
 script = ExtResource("4_0ad8t")
 player_speed = 500
 player = NodePath("../..")
 metadata/_custom_type_script = "uid://1h4xg4ikl1ds"
 
-[node name="IdleState" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
+[node name="IdleState" type="Node" parent="StateMachine" unique_id=426172348 node_paths=PackedStringArray("player")]
 script = ExtResource("5_x20fu")
 player = NodePath("../..")
 metadata/_custom_type_script = "uid://qaunyvabp6wm"
 
-[node name="FallingState" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
+[node name="FallingState" type="Node" parent="StateMachine" unique_id=270220526 node_paths=PackedStringArray("player")]
 script = ExtResource("6_0ar0x")
 player = NodePath("../..")
 metadata/_custom_type_script = "uid://cyvkocajs5jd5"
 
-[node name="glidingstate" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
+[node name="glidingstate" type="Node" parent="StateMachine" unique_id=1316481939 node_paths=PackedStringArray("player")]
 script = ExtResource("7_slvmq")
 player_speed = 200
 player = NodePath("../..")
