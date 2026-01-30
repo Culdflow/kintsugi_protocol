@@ -1,0 +1,8 @@
+res://scenes/levels/level_1_station.tscn
+res://scenes/levels/repairable_platform.gd
+res://scenes/levels/repairable.gd
+res://scenes/levels/test_player.gd
+res://scenes/levels/exit.gd
+res://scenes/levels/level_1_station.gd
+res://scenes/levels/level_2_space.tscn
+res://Objects/player.gd
