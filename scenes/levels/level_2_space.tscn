@@ -88,8 +88,7 @@ size = Vector2(60, 112)
 
 [node name="Player" parent="." unique_id=1463218212 instance=ExtResource("1_1sbjx")]
 position = Vector2(133, -419)
-speed = 550.0
-jump_force = 800.0
+scale = Vector2(0.3, 0.3)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=986984547]
 position = Vector2(38, 3)
