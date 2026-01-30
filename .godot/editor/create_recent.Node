@@ -1,6 +1,8 @@
-Marker2D
-Node
+PointLight2D
 Label
 Sprite2D
-Timer
 CollisionShape2D
+Area2D
+Marker2D
+Node
+Timer
