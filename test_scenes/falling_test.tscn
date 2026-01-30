@@ -36,6 +36,7 @@ position = Vector2(1000, 385)
 [node name="limbRemover" type="Area2D" parent="."]
 position = Vector2(-778, 448)
 script = ExtResource("3_lkiuq")
+text_message = "Cost: Left Leg"
 metadata/_custom_type_script = "uid://bfn8bqedktcgo"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="limbRemover"]

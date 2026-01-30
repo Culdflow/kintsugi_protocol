@@ -5,6 +5,7 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_a6eg0"]
 font = ExtResource("1_2r2oa")
+font_size = 32
 outline_size = 5
 outline_color = Color(0, 0, 0, 1)
 
@@ -62,9 +63,11 @@ _data = {
 &"pop_up": SubResource("Animation_2r2oa")
 }
 
-[node name="LabelObject" type="Node2D"]
+[node name="LabelObject" type="Node2D" node_paths=PackedStringArray("animPlayer", "label")]
 scale = Vector2(1e-05, 1e-05)
 script = ExtResource("1_1ct8y")
+animPlayer = NodePath("AnimationPlayer")
+label = NodePath("Label")
 
 [node name="Label" type="Label" parent="."]
 anchors_preset = 8
@@ -78,6 +81,8 @@ offset_right = 20.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
+text = "
+"
 label_settings = SubResource("LabelSettings_a6eg0")
 horizontal_alignment = 1
 vertical_alignment = 1
