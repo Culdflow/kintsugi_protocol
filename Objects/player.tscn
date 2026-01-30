@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://nnojcwkwaxf7"]
+[gd_scene format=3 uid="uid://nnojcwkwaxf7"]
 
 [ext_resource type="Script" uid="uid://bt1naj0q1vcey" path="res://scripts/player.gd" id="1_3y5cq"]
 [ext_resource type="Texture2D" uid="uid://cvcb6l6ch6dir" path="res://icon.svg" id="1_y0qk3"]
@@ -15,29 +15,29 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3y5cq"]
 size = Vector2(120, 20)
 
-[sub_resource type="Animation" id="Animation_3ye7n"]
-resource_name = "idlestate"
-loop_mode = 1
-
 [sub_resource type="Animation" id="Animation_xxqss"]
 length = 0.001
 
-[sub_resource type="Animation" id="Animation_6jlvs"]
-resource_name = "runningstate"
+[sub_resource type="Animation" id="Animation_hyl1l"]
+resource_name = "fallingstate"
+
+[sub_resource type="Animation" id="Animation_eq7mc"]
+resource_name = "glidejumpstate"
+
+[sub_resource type="Animation" id="Animation_sbav2"]
+resource_name = "glidingstate"
+
+[sub_resource type="Animation" id="Animation_3ye7n"]
+resource_name = "idlestate"
 loop_mode = 1
 
 [sub_resource type="Animation" id="Animation_0ht63"]
 resource_name = "jumpingstate"
 length = 0.2
 
-[sub_resource type="Animation" id="Animation_hyl1l"]
-resource_name = "fallingstate"
-
-[sub_resource type="Animation" id="Animation_sbav2"]
-resource_name = "glidingstate"
-
-[sub_resource type="Animation" id="Animation_eq7mc"]
-resource_name = "glidejumpstate"
+[sub_resource type="Animation" id="Animation_6jlvs"]
+resource_name = "runningstate"
+loop_mode = 1
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6jlvs"]
 _data = {
@@ -50,7 +50,7 @@ _data = {
 &"runningstate": SubResource("Animation_6jlvs")
 }
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("leftLeg", "rightArm", "state_machine", "head_marker")]
+[node name="Player" type="CharacterBody2D" unique_id=1485936801 node_paths=PackedStringArray("leftLeg", "rightArm", "state_machine", "head_marker")]
 collision_mask = 2
 script = ExtResource("1_3y5cq")
 leftLeg = NodePath("leftLeg")
@@ -58,21 +58,21 @@ rightArm = NodePath("RightArm")
 state_machine = NodePath("StateMachine")
 head_marker = NodePath("HeadMarker")
 
-[node name="Torso" type="Sprite2D" parent="."]
+[node name="Torso" type="Sprite2D" parent="." unique_id=1978247689]
 position = Vector2(0, 66)
 scale = Vector2(1, 2.03125)
 texture = ExtResource("1_y0qk3")
 
-[node name="Head" type="Sprite2D" parent="."]
+[node name="Head" type="Sprite2D" parent="." unique_id=1805263695]
 position = Vector2(1, -112)
 scale = Vector2(0.777344, 0.6875)
 texture = ExtResource("1_y0qk3")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=257017050]
 position = Vector2(0, 360)
 shape = SubResource("RectangleShape2D_3y5cq")
 
-[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state", "animPlayer", "player")]
+[node name="StateMachine" type="Node" parent="." unique_id=1943296221 node_paths=PackedStringArray("initial_state", "animPlayer", "player")]
 script = ExtResource("3_2i4gt")
 initial_state = NodePath("IdleState")
 animPlayer = NodePath("../AnimationPlayer")
@@ -81,7 +81,7 @@ metadata/_custom_type_script = "uid://dqnn5kxwvf0q7"
 
 [node name="RunningState" type="Node" parent="StateMachine" unique_id=360898587 node_paths=PackedStringArray("player")]
 script = ExtResource("4_0ad8t")
-player_speed = 500
+player_speed = 150
 player = NodePath("../..")
 metadata/_custom_type_script = "uid://1h4xg4ikl1ds"
 
@@ -97,31 +97,32 @@ metadata/_custom_type_script = "uid://cyvkocajs5jd5"
 
 [node name="glidingstate" type="Node" parent="StateMachine" unique_id=1316481939 node_paths=PackedStringArray("player")]
 script = ExtResource("7_slvmq")
-player_speed = 200
+gravity_speed = 250
+gravity_speed_addr = 250
+player_speed = 150
 player = NodePath("../..")
 metadata/_custom_type_script = "uid://4riw0jv8n4kx"
 
-[node name="jumpingstate" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
+[node name="jumpingstate" type="Node" parent="StateMachine" unique_id=2078445779 node_paths=PackedStringArray("player")]
 script = ExtResource("8_ng3n2")
+jump_height = 250
 player = NodePath("../..")
 metadata/_custom_type_script = "uid://dqlj1ito5qs1c"
 
-[node name="glidejumpstate" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
+[node name="glidejumpstate" type="Node" parent="StateMachine" unique_id=1848188275 node_paths=PackedStringArray("player")]
 script = ExtResource("9_f7am4")
-player_speed = 500
+player_speed = 150
 player = NodePath("../..")
 metadata/_custom_type_script = "uid://c51wc0rpd31jj"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_6jlvs")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1188111938]
+libraries/ = SubResource("AnimationLibrary_6jlvs")
 
-[node name="leftLeg" parent="." instance=ExtResource("12_6jlvs")]
+[node name="leftLeg" parent="." unique_id=1789131729 instance=ExtResource("12_6jlvs")]
 position = Vector2(27, 200)
 
-[node name="RightArm" parent="." instance=ExtResource("10_3ye7n")]
+[node name="RightArm" parent="." unique_id=2005234099 instance=ExtResource("10_3ye7n")]
 position = Vector2(-86, -48)
 
-[node name="HeadMarker" type="Marker2D" parent="."]
+[node name="HeadMarker" type="Marker2D" parent="." unique_id=793052353]
 position = Vector2(0, -108)
