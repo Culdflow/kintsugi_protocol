@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://nnojcwkwaxf7"]
+[gd_scene load_steps=21 format=3 uid="uid://nnojcwkwaxf7"]
 
 [ext_resource type="Script" uid="uid://bt1naj0q1vcey" path="res://scripts/player.gd" id="1_3y5cq"]
 [ext_resource type="Texture2D" uid="uid://cvcb6l6ch6dir" path="res://icon.svg" id="1_y0qk3"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://4riw0jv8n4kx" path="res://States/GlidingState.gd" id="7_slvmq"]
 [ext_resource type="Script" uid="uid://dqlj1ito5qs1c" path="res://States/JumpingState.gd" id="8_ng3n2"]
 [ext_resource type="Script" uid="uid://c51wc0rpd31jj" path="res://States/glideJumpState.gd" id="9_f7am4"]
+[ext_resource type="PackedScene" uid="uid://b8bjt7c31qe2t" path="res://Objects/limbs/right_arm.tscn" id="10_3ye7n"]
 [ext_resource type="PackedScene" uid="uid://bu3asabblrhl4" path="res://Objects/limbs/left_leg.tscn" id="12_6jlvs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3y5cq"]
@@ -29,19 +30,33 @@ loop_mode = 1
 resource_name = "jumpingstate"
 length = 0.2
 
+[sub_resource type="Animation" id="Animation_hyl1l"]
+resource_name = "fallingstate"
+
+[sub_resource type="Animation" id="Animation_sbav2"]
+resource_name = "glidingstate"
+
+[sub_resource type="Animation" id="Animation_eq7mc"]
+resource_name = "glidejumpstate"
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6jlvs"]
 _data = {
 &"RESET": SubResource("Animation_xxqss"),
+&"fallingstate": SubResource("Animation_hyl1l"),
+&"glidejumpstate": SubResource("Animation_eq7mc"),
+&"glidingstate": SubResource("Animation_sbav2"),
 &"idlestate": SubResource("Animation_3ye7n"),
 &"jumpingstate": SubResource("Animation_0ht63"),
 &"runningstate": SubResource("Animation_6jlvs")
 }
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("leftLeg", "state_machine")]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("leftLeg", "rightArm", "state_machine", "head_marker")]
 collision_mask = 2
 script = ExtResource("1_3y5cq")
 leftLeg = NodePath("leftLeg")
+rightArm = NodePath("RightArm")
 state_machine = NodePath("StateMachine")
+head_marker = NodePath("HeadMarker")
 
 [node name="Torso" type="Sprite2D" parent="."]
 position = Vector2(0, 66)
@@ -104,3 +119,9 @@ libraries = {
 
 [node name="leftLeg" parent="." instance=ExtResource("12_6jlvs")]
 position = Vector2(27, 200)
+
+[node name="RightArm" parent="." instance=ExtResource("10_3ye7n")]
+position = Vector2(-86, -48)
+
+[node name="HeadMarker" type="Marker2D" parent="."]
+position = Vector2(0, -108)

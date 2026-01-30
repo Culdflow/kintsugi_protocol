@@ -1,9 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://criyctw4i076m"]
+[gd_scene load_steps=9 format=3 uid="uid://criyctw4i076m"]
 
 [ext_resource type="PackedScene" uid="uid://nnojcwkwaxf7" path="res://Objects/player.tscn" id="1_gmbtb"]
+[ext_resource type="PackedScene" uid="uid://drulu15n7huhb" path="res://Objects/ObjectTest/Objet.tscn" id="2_yd3nq"]
+[ext_resource type="Script" uid="uid://bfn8bqedktcgo" path="res://scripts/interractable_objects/limb_remover.gd" id="3_lkiuq"]
+[ext_resource type="Texture2D" uid="uid://cvcb6l6ch6dir" path="res://icon.svg" id="4_qpbyx"]
+[ext_resource type="Script" uid="uid://0fdi3lykyvvd" path="res://scripts/interractable_objects/mask_piece.gd" id="5_qpbyx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gmbtb"]
 size = Vector2(5058, 129)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xsdrx"]
+radius = 222.182
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sjbnr"]
+radius = 256.977
 
 [node name="Node2D" type="Node2D"]
 
@@ -19,3 +29,28 @@ shape = SubResource("RectangleShape2D_gmbtb")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.3, 0.3)
+
+[node name="Objet1" parent="." instance=ExtResource("2_yd3nq")]
+position = Vector2(1000, 385)
+
+[node name="limbRemover" type="Area2D" parent="."]
+position = Vector2(-778, 448)
+script = ExtResource("3_lkiuq")
+metadata/_custom_type_script = "uid://bfn8bqedktcgo"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="limbRemover"]
+shape = SubResource("CircleShape2D_xsdrx")
+
+[node name="Icon" type="Sprite2D" parent="limbRemover"]
+texture = ExtResource("4_qpbyx")
+
+[node name="maskPiece" type="Area2D" parent="."]
+position = Vector2(0, 424)
+script = ExtResource("5_qpbyx")
+metadata/_custom_type_script = "uid://0fdi3lykyvvd"
+
+[node name="Icon" type="Sprite2D" parent="maskPiece"]
+texture = ExtResource("4_qpbyx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="maskPiece"]
+shape = SubResource("CircleShape2D_sjbnr")
