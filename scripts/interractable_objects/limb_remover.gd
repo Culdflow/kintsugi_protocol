@@ -12,16 +12,19 @@ var _info_label: LabelObject = null
 @export var text_message: String
 var limb_accepted: BodyPart
 
-#func _ready():
-	#if !_info_label:
-		#_info_label = _label_object.instantiate()
-		#add_child(_info_label)
-		#_info_label._spawn(global_position + Vector2(0, -100), text_message, Color.WHITE)
+func _body_entered_modif(body):
+	if !_info_label:
+		_info_label = _label_object.instantiate()
+		add_child(_info_label)
+		_info_label._spawn(global_position + Vector2(0, -100), text_message, Color.WHITE)
 
+func _body_exited_modif(body):
+	if (_info_label):
+		_info_label._despawn()
 
 func _interract(player: Player_sc):
-	#if (_info_label):
-		#_info_label._despawn()
+	if (_info_label):
+		_info_label._despawn()
 	print("interracted")
 	if limb_asked == limbs.LEFT_LEG:
 		limb_accepted = player.leftLeg

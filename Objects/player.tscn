@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://nnojcwkwaxf7"]
+[gd_scene load_steps=22 format=3 uid="uid://nnojcwkwaxf7"]
 
 [ext_resource type="Script" uid="uid://bt1naj0q1vcey" path="res://scripts/player.gd" id="1_3y5cq"]
 [ext_resource type="Texture2D" uid="uid://cvcb6l6ch6dir" path="res://icon.svg" id="1_y0qk3"]
@@ -15,29 +15,29 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3y5cq"]
 size = Vector2(120, 20)
 
-[sub_resource type="Animation" id="Animation_3ye7n"]
-resource_name = "idlestate"
-loop_mode = 1
-
 [sub_resource type="Animation" id="Animation_xxqss"]
 length = 0.001
 
-[sub_resource type="Animation" id="Animation_6jlvs"]
-resource_name = "runningstate"
+[sub_resource type="Animation" id="Animation_hyl1l"]
+resource_name = "fallingstate"
+
+[sub_resource type="Animation" id="Animation_eq7mc"]
+resource_name = "glidejumpstate"
+
+[sub_resource type="Animation" id="Animation_sbav2"]
+resource_name = "glidingstate"
+
+[sub_resource type="Animation" id="Animation_3ye7n"]
+resource_name = "idlestate"
 loop_mode = 1
 
 [sub_resource type="Animation" id="Animation_0ht63"]
 resource_name = "jumpingstate"
 length = 0.2
 
-[sub_resource type="Animation" id="Animation_hyl1l"]
-resource_name = "fallingstate"
-
-[sub_resource type="Animation" id="Animation_sbav2"]
-resource_name = "glidingstate"
-
-[sub_resource type="Animation" id="Animation_eq7mc"]
-resource_name = "glidejumpstate"
+[sub_resource type="Animation" id="Animation_6jlvs"]
+resource_name = "runningstate"
+loop_mode = 1
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6jlvs"]
 _data = {
@@ -49,6 +49,10 @@ _data = {
 &"jumpingstate": SubResource("Animation_0ht63"),
 &"runningstate": SubResource("Animation_6jlvs")
 }
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hyl1l"]
+radius = 12.0
+height = 56.0
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("leftLeg", "rightArm", "state_machine", "head_marker")]
 collision_mask = 2
@@ -125,3 +129,7 @@ position = Vector2(-86, -48)
 
 [node name="HeadMarker" type="Marker2D" parent="."]
 position = Vector2(0, -108)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HeadMarker"]
+shape = SubResource("CapsuleShape2D_hyl1l")
+debug_color = Color(0.946036, 5.87195e-06, 0.589682, 0.42)
