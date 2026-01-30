@@ -9,7 +9,8 @@ func _play_anim(animation):
 	anim_player.stop()
 	anim_player.play(animation)
 
-func _limb_lost():
+func _limb_lost(pos):
 	freeze = false
-	apply_force(Vector2(10, 10))
+	global_position = pos
+	rotate(0.2)
 	collision.disabled = false

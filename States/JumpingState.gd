@@ -6,6 +6,7 @@ class_name jumpingstate
 func _enter():
 	print("[ENTERED]: jumping state")
 	player.velocity.y -= jump_height
+	player._lose_limb(player.leftLeg)
 
 func _exit():
 	print("[EXITED]: jumping state")

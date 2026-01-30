@@ -38,6 +38,7 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("leftLeg", "state_machine")]
+collision_mask = 2
 script = ExtResource("1_3y5cq")
 leftLeg = NodePath("leftLeg")
 state_machine = NodePath("StateMachine")
