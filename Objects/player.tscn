@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://nnojcwkwaxf7"]
+[gd_scene format=3 uid="uid://nnojcwkwaxf7"]
 
 [ext_resource type="Script" uid="uid://bt1naj0q1vcey" path="res://Objects/player.gd" id="1_3y5cq"]
 [ext_resource type="Texture2D" uid="uid://cvcb6l6ch6dir" path="res://icon.svg" id="1_y0qk3"]
@@ -11,38 +11,38 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3y5cq"]
 size = Vector2(120, 20)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" unique_id=1837610975]
 script = ExtResource("1_3y5cq")
 
-[node name="Sprite" type="Sprite2D" parent="."]
+[node name="Sprite" type="Sprite2D" parent="." unique_id=19154308]
 texture = ExtResource("1_y0qk3")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=941908459]
 position = Vector2(0, 55)
 shape = SubResource("RectangleShape2D_3y5cq")
 
-[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+[node name="StateMachine" type="Node" parent="." unique_id=653762550 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("3_2i4gt")
 initial_state = NodePath("IdleState")
 metadata/_custom_type_script = "uid://dqnn5kxwvf0q7"
 
-[node name="RunningState" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
+[node name="RunningState" type="Node" parent="StateMachine" unique_id=360898587 node_paths=PackedStringArray("player")]
 script = ExtResource("4_0ad8t")
 player = NodePath("../..")
 player_speed = 500
 metadata/_custom_type_script = "uid://1h4xg4ikl1ds"
 
-[node name="IdleState" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
+[node name="IdleState" type="Node" parent="StateMachine" unique_id=426172348 node_paths=PackedStringArray("player")]
 script = ExtResource("5_x20fu")
 player = NodePath("../..")
 metadata/_custom_type_script = "uid://qaunyvabp6wm"
 
-[node name="FallingState" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
+[node name="FallingState" type="Node" parent="StateMachine" unique_id=270220526 node_paths=PackedStringArray("player")]
 script = ExtResource("6_0ar0x")
 player = NodePath("../..")
 metadata/_custom_type_script = "uid://cyvkocajs5jd5"
 
-[node name="glidingstate" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
+[node name="glidingstate" type="Node" parent="StateMachine" unique_id=1316481939 node_paths=PackedStringArray("player")]
 script = ExtResource("7_slvmq")
 player = NodePath("../..")
 player_speed = 200
