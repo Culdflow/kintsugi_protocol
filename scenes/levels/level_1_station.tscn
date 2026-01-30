@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://b8ssfc2c3evva" path="res://scenes/levels/exit.gd" id="6_dhcrc"]
 [ext_resource type="Texture2D" uid="uid://qhgrsm0rinf5" path="res://asset/Tileset.png" id="8_0b6ua"]
 [ext_resource type="Texture2D" uid="uid://capkooq3qj02y" path="res://asset/scifi_5b3a.png" id="8_2rgbq"]
+[ext_resource type="Texture2D" uid="uid://cllguvasotvej" path="res://asset/scifi_3a2a.png" id="9_wsiwm"]
 [ext_resource type="Texture2D" uid="uid://dbo0ry188u8a2" path="res://asset/scifi_5b1a.png" id="11_wsiwm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2rgbq"]
@@ -1152,7 +1153,7 @@ shape = SubResource("RectangleShape2D_8ey7k")
 debug_color = Color(0.95131236, 0.17326319, 0.3609793, 0.41960785)
 
 [node name="PointLight2D" type="PointLight2D" parent="Zone1/Repairables/Repairable_Platform/InteractArea/CollisionShape2D" unique_id=1998134757]
-position = Vector2(-267, -6.03125)
+position = Vector2(-242, 4)
 scale = Vector2(0.2578125, 0.2890625)
 texture = ExtResource("1_2x3un")
 
@@ -1177,7 +1178,7 @@ texture = ExtResource("1_45of8")
 [node name="InteractArea" type="Area2D" parent="Zone1/Repairables/Repairable_Generator" unique_id=762334332]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Zone1/Repairables/Repairable_Generator/InteractArea" unique_id=60301747]
-position = Vector2(390, 121)
+position = Vector2(390, 117)
 shape = SubResource("RectangleShape2D_wsiwm")
 debug_color = Color(0.95131236, 0.17326319, 0.3609793, 0.41960785)
 
@@ -1222,10 +1223,10 @@ position = Vector2(538, 85.03125)
 [node name="Sprite2D" type="Sprite2D" parent="Zone1/Platform2" unique_id=420613540]
 position = Vector2(-33.999977, -5.031247)
 scale = Vector2(0.4999999, 0.12500003)
-texture = ExtResource("1_2x3un")
+texture = ExtResource("9_wsiwm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Zone1/Platform2" unique_id=1547078402]
-position = Vector2(-34, -5.03125)
+position = Vector2(-37, -5.03125)
 shape = SubResource("RectangleShape2D_78tqw")
 debug_color = Color(0.91029406, 0.21633074, 0.5200127, 0.41960785)
 
