@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://cxxe1y0stsi7"]
+
+[ext_resource type="PackedScene" uid="uid://nnojcwkwaxf7" path="res://Objects/player.tscn" id="1_sct0n"]
+[ext_resource type="Texture2D" uid="uid://cvcb6l6ch6dir" path="res://icon.svg" id="2_crsqr"]
+[ext_resource type="PackedScene" uid="uid://drulu15n7huhb" path="res://Objects/ObjectTest/Objet.tscn" id="3_avtc3"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_crsqr"]
+distance = -329.0
+
+[node name="SpaceStation" type="Node2D" unique_id=1196070059]
+
+[node name="Player" parent="." unique_id=1070027641 instance=ExtResource("1_sct0n")]
+position = Vector2(279, 212)
+safe_margin = 0.001
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1369026950]
+position = Vector2(17, 366)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1150507344]
+show_behind_parent = true
+position = Vector2(3, -265)
+shape = SubResource("WorldBoundaryShape2D_crsqr")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=279087079]
+position = Vector2(1435.9999, 139.00002)
+scale = Vector2(24.843748, 1)
+texture = ExtResource("2_crsqr")
+
+[node name="Objet1" parent="." unique_id=780374223 instance=ExtResource("3_avtc3")]
+position = Vector2(610, -314)
+
+[node name="Objet2" parent="." unique_id=1336239651 instance=ExtResource("3_avtc3")]
+position = Vector2(1153, 339)
+
+[node name="Objet3" parent="." unique_id=965378243 instance=ExtResource("3_avtc3")]
+position = Vector2(1919, 353)

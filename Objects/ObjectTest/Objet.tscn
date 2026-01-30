@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://drulu15n7huhb"]
+
+[ext_resource type="Script" uid="uid://cx7jt7w1uoerb" path="res://Objects/ObjectTest/objet.gd" id="1_obhdx"]
+[ext_resource type="Texture2D" uid="uid://cvcb6l6ch6dir" path="res://icon.svg" id="1_ojaxt"]
+[ext_resource type="Script" uid="uid://vcdar2grnyf" path="res://Objects/ObjectTest/detection.gd" id="3_kjf3p"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j7b2a"]
+radius = 58.0
+height = 116.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_obhdx"]
+size = Vector2(186, 160)
+
+[node name="Objet1" type="RigidBody2D" unique_id=1001573262]
+script = ExtResource("1_obhdx")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1079885493]
+position = Vector2(-1.9073486e-06, 0.5000038)
+scale = Vector2(0.8593751, 0.9296875)
+texture = ExtResource("1_ojaxt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=161372932]
+shape = SubResource("CapsuleShape2D_j7b2a")
+
+[node name="Detection" type="Area2D" parent="." unique_id=173069695]
+script = ExtResource("3_kjf3p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detection" unique_id=1924237130]
+position = Vector2(-6, 2)
+shape = SubResource("RectangleShape2D_obhdx")
+
+[connection signal="body_entered" from="Detection" to="Detection" method="_on_body_entered"]
+[connection signal="body_exited" from="Detection" to="Detection" method="_on_body_exited"]
