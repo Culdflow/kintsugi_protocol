@@ -2,8 +2,10 @@ extends CharacterBody2D
 
 class_name Player_sc
 
-const gravity_speed_MAX = 500
-var gravity_speed = 0
+@export var leftLeg: BodyPart = null
+@export var rightLeg: BodyPart = null
+@export var leftArm: BodyPart = null
+@export var rightArm: BodyPart = null
 
 func _physics_process(delta: float) -> void:
-	
+	move_and_slide()
