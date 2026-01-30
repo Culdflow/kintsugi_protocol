@@ -88,6 +88,7 @@ size = Vector2(60, 112)
 
 [node name="Player" parent="." unique_id=1463218212 instance=ExtResource("1_1sbjx")]
 position = Vector2(133, -419)
+scale = Vector2(0.3, 0.3)
 speed = 550.0
 jump_force = 800.0
 
@@ -196,7 +197,10 @@ position = Vector2(-17, -43)
 shape = SubResource("RectangleShape2D_vau20")
 
 [node name="Idle" type="Sprite2D" parent="Exit/CollisionShape2D" unique_id=1191185409]
-visible = false
 position = Vector2(0.80682373, 0.9431839)
 scale = Vector2(0.48739523, 0.8758877)
 texture = ExtResource("4_cys12")
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=1976810484]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Parallax2D" unique_id=1612157160]
