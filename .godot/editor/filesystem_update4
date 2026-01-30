@@ -1,1 +1,4 @@
 res://scenes/levels/level_1_station.tscn
+res://scenes/levels/repairable_platform.gd
+res://scenes/levels/repairable.gd
+res://scenes/levels/test_player.gd

@@ -18,7 +18,7 @@ func _process(_delta):
 		print("Repair triggered")
 
 func _on_body_entered(body):
-	if body is CharacterBody2D:
+	if body is CharacterBody2D and not repaired:
 		player_inside = true
 		label.visible = true
 		label.text = "Press E"
