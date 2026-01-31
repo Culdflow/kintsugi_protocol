@@ -41,7 +41,7 @@ position = Vector2(1000, 385)
 [node name="limbRemover" type="Area2D" parent="."]
 position = Vector2(-778, 448)
 script = ExtResource("3_lkiuq")
-limb_asked = 3
+limb_asked = 1
 text_message = "Cost: Left Leg"
 metadata/_custom_type_script = "uid://bfn8bqedktcgo"
 
@@ -49,6 +49,18 @@ metadata/_custom_type_script = "uid://bfn8bqedktcgo"
 shape = SubResource("CircleShape2D_xsdrx")
 
 [node name="Icon" type="Sprite2D" parent="limbRemover"]
+texture = ExtResource("4_qpbyx")
+
+[node name="limbRemover2" type="Area2D" parent="."]
+position = Vector2(-1311, 448)
+script = ExtResource("3_lkiuq")
+text_message = "Cost: Left Leg"
+metadata/_custom_type_script = "uid://bfn8bqedktcgo"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="limbRemover2"]
+shape = SubResource("CircleShape2D_xsdrx")
+
+[node name="Icon" type="Sprite2D" parent="limbRemover2"]
 texture = ExtResource("4_qpbyx")
 
 [node name="maskPiece" type="Area2D" parent="."]

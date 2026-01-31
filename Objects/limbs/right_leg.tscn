@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dases8n2phfps"]
+[gd_scene load_steps=15 format=3 uid="uid://dases8n2phfps"]
 
 [ext_resource type="Script" uid="uid://dcudnydipj1lf" path="res://scripts/bodyParts/BodyPart.gd" id="1_eca30"]
 [ext_resource type="Texture2D" uid="uid://nimtg3djvrwn" path="res://assets/player_sprite/lower_leg.png" id="2_pqs7n"]
@@ -174,6 +174,9 @@ tracks/1/keys = {
 "values": [0.0, 2.10138]
 }
 
+[sub_resource type="Animation" id="Animation_p0s4d"]
+resource_name = "zombiestate"
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ttn3g"]
 _data = {
 &"RESET": SubResource("Animation_j85uf"),
@@ -182,7 +185,8 @@ _data = {
 &"glidingstate": SubResource("Animation_pqs7n"),
 &"idlestate": SubResource("Animation_kmlb7"),
 &"jumpingstate": SubResource("Animation_ttn3g"),
-&"runningstate": SubResource("Animation_3ljyv")
+&"runningstate": SubResource("Animation_3ljyv"),
+&"zombiestate": SubResource("Animation_p0s4d")
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kmlb7"]

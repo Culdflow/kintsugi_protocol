@@ -17,6 +17,7 @@ func _limb_lost(pos, _scale):
 	freeze = false
 	set_scale(_scale)
 	global_position = pos
-	rotate(0.2)
+	rotate(randf())
+	apply_central_force(Vector2(randi_range(-50000, 50000), randi_range(-50000, 50000)))
 	collision1.disabled = false
 	collision2.disabled = false

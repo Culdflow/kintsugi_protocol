@@ -24,4 +24,5 @@ func _on_body_exited(body):
 func _process(delta):
 	if can_pickup and Input.is_action_just_pressed("Interact"):
 		if player != null:
+			player._die()
 			player.pickup(parent_object)

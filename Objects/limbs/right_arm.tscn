@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b8bjt7c31qe2t"]
+[gd_scene load_steps=15 format=3 uid="uid://b8bjt7c31qe2t"]
 
 [ext_resource type="Script" uid="uid://dcudnydipj1lf" path="res://scripts/bodyParts/BodyPart.gd" id="1_vjma2"]
 [ext_resource type="Texture2D" uid="uid://dl70jab1sqo10" path="res://assets/player_sprite/player_upper_arm_right.png" id="2_aijdp"]
@@ -188,6 +188,9 @@ tracks/1/keys = {
 "values": [-0.174533]
 }
 
+[sub_resource type="Animation" id="Animation_akmja"]
+resource_name = "zombiestate"
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ttn3g"]
 _data = {
 &"RESET": SubResource("Animation_j85uf"),
@@ -196,7 +199,8 @@ _data = {
 &"glidingstate": SubResource("Animation_1443f"),
 &"idlestate": SubResource("Animation_kmlb7"),
 &"jumpingstate": SubResource("Animation_ttn3g"),
-&"runningstate": SubResource("Animation_3ljyv")
+&"runningstate": SubResource("Animation_3ljyv"),
+&"zombiestate": SubResource("Animation_akmja")
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1443f"]

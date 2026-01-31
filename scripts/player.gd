@@ -11,11 +11,19 @@ class_name Player_sc
 const gravity_speed_MAX = 500
 @export var gravity_speed = 0
 @export var gravity_speed_addr = 50
+@export var player_run_speed: int = 500
+@export var player_float_speed: int = 200
+@export var jump_height: int = 500
+@export var player_jump_speed: int = 500
+@export var two_arms_speed: int = 500
+@export var one_arm_speed: int = 250
+@export var no_arms_speed: int = 50
+@export var arm_rotation_speed: int = 10
 
 
 
 func _physics_process(delta: float) -> void:
-	if (Input.is_action_just_pressed("up") && is_on_floor()):
+	if (Input.is_action_just_pressed("up") && is_on_floor() && rightLeg && leftLeg):
 		state_machine.current_state.Transitioned.emit(state_machine.current_state, "jumpingstate")
 	if (is_on_floor()):
 		gravity_speed = 0
@@ -23,6 +31,8 @@ func _physics_process(delta: float) -> void:
 		velocity.y += gravity_speed * delta
 		gravity_speed += gravity_speed_addr
 	move_and_slide()
+	if (!rightLeg && !leftLeg):
+		state_machine.current_state.Transitioned.emit(state_machine.current_state, "zombiestate")
 	
 	if (Input.is_action_just_pressed("Interact")):
 		var arm: BodyPart = null
@@ -86,3 +96,17 @@ func pickup(obj: PickupObject):
 	arm.held_object.freeze = true
 	
 	print("Picked up:", arm.held_object.item_name)
+
+func _die():
+	if (leftArm):
+		_lose_limb(leftArm)
+	if (leftLeg):
+		_lose_limb(leftLeg)
+	if (rightArm):
+		_lose_limb(rightArm)
+	if (rightLeg):
+		_lose_limb(rightLeg)
+	get_tree().create_timer(10).timeout.connect(_death_timer_timeout)
+
+func _death_timer_timeout():
+	queue_free()
