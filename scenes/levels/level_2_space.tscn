@@ -747,3 +747,15 @@ shape = SubResource("RectangleShape2D_vau20")
 position = Vector2(0.806824, 0.943184)
 scale = Vector2(0.487395, 0.875888)
 texture = ExtResource("4_cys12")
+
+[node name="Player" parent="." instance=ExtResource("1_1sbjx")]
+position = Vector2(4115, -238)
+scale = Vector2(0.3, 0.3)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(38, 3)
+zoom = Vector2(1.2, 1.2)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Player"]
+stream = ExtResource("8_b8tnk")
+autoplay = true

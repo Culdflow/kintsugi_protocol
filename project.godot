@@ -19,14 +19,6 @@ run/main_scene="uid://cvv4q2t7clfqg"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
-[autoload]
-
-SceneManager="*res://addons/scene_manager/SceneManager.tscn"
-
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/scene_manager/plugin.cfg")
-
 [input]
 
 ui_select={
