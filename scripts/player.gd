@@ -61,13 +61,19 @@ func _lose_limb(limb:BodyPart):
 		rightArm = null
 	if (limb == rightLeg):
 		rightLeg = null
+	var limb_scale = limb.scale
+	print("[SCALE LIMB]: ", limb_scale)
+	var limb_pos = limb.global_position
 	var limb_scene := limb.scene_file_path
-	var new_limb: BodyPart = load(limb_scene).instantiate()
-	new_limb._limb_lost(limb.global_position)
 	limb.queue_free()
+	var new_limb: BodyPart = load(limb_scene).instantiate()
 	get_parent().add_child(new_limb)
+<<<<<<< HEAD
 	if (leftLeg == null && rightLeg == null):
 		state_machine.current_state.Transitioned.emit(state_machine.current_state, "zombiestate")
+=======
+	new_limb._limb_lost(limb_pos, limb_scale)
+>>>>>>> 30e94a155654100c68cddb7d9e43ccc4bb83bc74
 
 func pickup(obj: PickupObject):
 	var arm: BodyPart = null

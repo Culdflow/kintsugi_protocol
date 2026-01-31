@@ -1,7 +1,10 @@
+<<<<<<< HEAD
 [gd_scene format=3 uid="uid://nnojcwkwaxf7"]
+=======
+[gd_scene load_steps=23 format=3 uid="uid://nnojcwkwaxf7"]
+>>>>>>> 30e94a155654100c68cddb7d9e43ccc4bb83bc74
 
 [ext_resource type="Script" uid="uid://bt1naj0q1vcey" path="res://scripts/player.gd" id="1_3y5cq"]
-[ext_resource type="Texture2D" uid="uid://cvcb6l6ch6dir" path="res://icon.svg" id="1_y0qk3"]
 [ext_resource type="Script" uid="uid://dqnn5kxwvf0q7" path="res://scripts/StateMachine/StateMachine.gd" id="3_2i4gt"]
 [ext_resource type="Script" uid="uid://1h4xg4ikl1ds" path="res://States/RunningState.gd" id="4_0ad8t"]
 [ext_resource type="Script" uid="uid://qaunyvabp6wm" path="res://States/IdleState.gd" id="5_x20fu"]
@@ -10,6 +13,7 @@
 [ext_resource type="Script" uid="uid://dqlj1ito5qs1c" path="res://States/JumpingState.gd" id="8_ng3n2"]
 [ext_resource type="Script" uid="uid://c51wc0rpd31jj" path="res://States/glideJumpState.gd" id="9_f7am4"]
 [ext_resource type="PackedScene" uid="uid://b8bjt7c31qe2t" path="res://Objects/limbs/right_arm.tscn" id="10_3ye7n"]
+<<<<<<< HEAD
 [ext_resource type="Script" uid="uid://1a8yb6aij7i1" path="res://States/ZombieState.gd" id="10_zombie"]
 [ext_resource type="PackedScene" uid="uid://bu3asabblrhl4" path="res://Objects/limbs/left_leg.tscn" id="12_6jlvs"]
 [ext_resource type="PackedScene" uid="uid://ch4hsgyay27kn" path="res://Objects/limbs/left_arm.tscn" id="13_3ye7n"]
@@ -17,6 +21,15 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3y5cq"]
 size = Vector2(120, 20)
+=======
+[ext_resource type="Texture2D" uid="uid://yp7gn5qd2ckc" path="res://assets/player_sprite/torso.png" id="11_hyl1l"]
+[ext_resource type="PackedScene" uid="uid://dases8n2phfps" path="res://Objects/limbs/right_leg.tscn" id="12_3ye7n"]
+[ext_resource type="PackedScene" uid="uid://bu3asabblrhl4" path="res://Objects/limbs/left_leg.tscn" id="12_6jlvs"]
+[ext_resource type="PackedScene" uid="uid://bx4mknswv5ys2" path="res://Objects/limbs/left_arm.tscn" id="12_sbav2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3y5cq"]
+size = Vector2(227, 69)
+>>>>>>> 30e94a155654100c68cddb7d9e43ccc4bb83bc74
 
 [sub_resource type="Animation" id="Animation_xxqss"]
 length = 0.001
@@ -53,6 +66,7 @@ length = 0.2
 [sub_resource type="Animation" id="Animation_6jlvs"]
 resource_name = "runningstate"
 loop_mode = 1
+<<<<<<< HEAD
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -69,6 +83,8 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_zombie"]
 resource_name = "zombiestate"
 loop_mode = 1
+=======
+>>>>>>> 30e94a155654100c68cddb7d9e43ccc4bb83bc74
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6jlvs"]
 _data = {
@@ -82,7 +98,11 @@ _data = {
 &"zombiestate": SubResource("Animation_zombie")
 }
 
+<<<<<<< HEAD
 [node name="Player" type="CharacterBody2D" unique_id=467173255 node_paths=PackedStringArray("leftLeg", "rightLeg", "leftArm", "rightArm", "state_machine", "head_marker")]
+=======
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("leftLeg", "rightLeg", "leftArm", "rightArm", "state_machine", "head_marker")]
+>>>>>>> 30e94a155654100c68cddb7d9e43ccc4bb83bc74
 collision_mask = 2
 script = ExtResource("1_3y5cq")
 leftLeg = NodePath("leftLeg")
@@ -92,6 +112,7 @@ rightArm = NodePath("RightArm")
 state_machine = NodePath("StateMachine")
 head_marker = NodePath("HeadMarker")
 
+<<<<<<< HEAD
 [node name="LeftArm" parent="." unique_id=1394733135 instance=ExtResource("13_3ye7n")]
 position = Vector2(-24, -50)
 
@@ -107,6 +128,10 @@ texture = ExtResource("1_y0qk3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=810561834]
 position = Vector2(0, 360)
+=======
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(34.5, 708.5)
+>>>>>>> 30e94a155654100c68cddb7d9e43ccc4bb83bc74
 shape = SubResource("RectangleShape2D_3y5cq")
 
 [node name="StateMachine" type="Node" parent="." unique_id=1488333894 node_paths=PackedStringArray("initial_state", "animPlayer", "player")]
@@ -154,11 +179,33 @@ script = ExtResource("10_zombie")
 player = NodePath("../..")
 metadata/_custom_type_script = "uid://1a8yb6aij7i1"
 
+<<<<<<< HEAD
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1532364433]
 libraries/ = SubResource("AnimationLibrary_6jlvs")
 
 [node name="leftLeg" parent="." unique_id=1823076633 instance=ExtResource("12_6jlvs")]
 position = Vector2(-8, 199)
+=======
+[node name="RightArm" parent="." instance=ExtResource("10_3ye7n")]
+modulate = Color(0.544974, 0.544974, 0.544974, 1)
+position = Vector2(28, 86)
+
+[node name="leftLeg" parent="." instance=ExtResource("12_6jlvs")]
+modulate = Color(0.65834, 0.65834, 0.65834, 1)
+position = Vector2(32, 304)
+
+[node name="Torso" type="Sprite2D" parent="."]
+modulate = Color(0.808998, 0.808998, 0.808998, 1)
+position = Vector2(0, 66)
+texture = ExtResource("11_hyl1l")
+flip_h = true
+
+[node name="RightLeg" parent="." instance=ExtResource("12_3ye7n")]
+position = Vector2(-41, 316)
+
+[node name="LeftArm" parent="." instance=ExtResource("12_sbav2")]
+position = Vector2(-74, 62)
+>>>>>>> 30e94a155654100c68cddb7d9e43ccc4bb83bc74
 
 [node name="RightArm" parent="." unique_id=630150079 instance=ExtResource("10_3ye7n")]
 position = Vector2(-9, -46)
