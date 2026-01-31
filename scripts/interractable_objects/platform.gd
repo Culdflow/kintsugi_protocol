@@ -10,7 +10,7 @@ func _ready() -> void:
 	super._ready()
 
 	# Visuel cassé (optionnel)
-	sprite.self_modulate = Color(1.0, 0.65, 0.4)
+	sprite.self_modulate = Color(1.0, 0.208, 0.169, 1.0)
 
 	# Collision OFF au départ
 	solid_collision.disabled = true

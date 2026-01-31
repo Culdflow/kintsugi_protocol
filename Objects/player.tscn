@@ -81,7 +81,7 @@ metadata/_custom_type_script = "uid://dqnn5kxwvf0q7"
 
 [node name="RunningState" type="Node" parent="StateMachine" unique_id=360898587 node_paths=PackedStringArray("player")]
 script = ExtResource("4_0ad8t")
-player_speed = 150
+player_speed = 250
 player = NodePath("../..")
 metadata/_custom_type_script = "uid://1h4xg4ikl1ds"
 
