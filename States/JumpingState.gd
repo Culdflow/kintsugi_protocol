@@ -1,7 +1,7 @@
 extends State
 class_name jumpingstate
 
-@export var jump_height: int = 500
+@onready var jump_height = player.jump_height
 
 func _enter():
 	print("[ENTERED]: jumping state")

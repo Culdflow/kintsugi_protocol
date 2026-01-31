@@ -1,7 +1,7 @@
 extends State
 class_name glidejumpstate
 
-@export var player_speed: int
+@onready var player_speed = player.player_jump_speed
 
 func _enter():
 	print("[ENTERED]: glide jump state")

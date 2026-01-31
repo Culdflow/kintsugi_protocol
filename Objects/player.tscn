@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://nnojcwkwaxf7"]
+[gd_scene load_steps=24 format=3 uid="uid://nnojcwkwaxf7"]
 
 [ext_resource type="Script" uid="uid://bt1naj0q1vcey" path="res://scripts/player.gd" id="1_3y5cq"]
 [ext_resource type="Script" uid="uid://dqnn5kxwvf0q7" path="res://scripts/StateMachine/StateMachine.gd" id="3_2i4gt"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://4riw0jv8n4kx" path="res://States/GlidingState.gd" id="7_slvmq"]
 [ext_resource type="Script" uid="uid://dqlj1ito5qs1c" path="res://States/JumpingState.gd" id="8_ng3n2"]
 [ext_resource type="Script" uid="uid://c51wc0rpd31jj" path="res://States/glideJumpState.gd" id="9_f7am4"]
+[ext_resource type="Script" uid="uid://bnbyntv12075p" path="res://States/ZombieState.gd" id="9_xxqss"]
 [ext_resource type="PackedScene" uid="uid://b8bjt7c31qe2t" path="res://Objects/limbs/right_arm.tscn" id="10_3ye7n"]
 [ext_resource type="Texture2D" uid="uid://yp7gn5qd2ckc" path="res://assets/player_sprite/torso.png" id="11_hyl1l"]
 [ext_resource type="PackedScene" uid="uid://dases8n2phfps" path="res://Objects/limbs/right_leg.tscn" id="12_3ye7n"]
@@ -75,7 +76,6 @@ metadata/_custom_type_script = "uid://dqnn5kxwvf0q7"
 
 [node name="RunningState" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
 script = ExtResource("4_0ad8t")
-player_speed = 500
 player = NodePath("../..")
 metadata/_custom_type_script = "uid://1h4xg4ikl1ds"
 
@@ -91,7 +91,6 @@ metadata/_custom_type_script = "uid://cyvkocajs5jd5"
 
 [node name="glidingstate" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
 script = ExtResource("7_slvmq")
-player_speed = 200
 player = NodePath("../..")
 metadata/_custom_type_script = "uid://4riw0jv8n4kx"
 
@@ -102,9 +101,13 @@ metadata/_custom_type_script = "uid://dqlj1ito5qs1c"
 
 [node name="glidejumpstate" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
 script = ExtResource("9_f7am4")
-player_speed = 500
 player = NodePath("../..")
 metadata/_custom_type_script = "uid://c51wc0rpd31jj"
+
+[node name="ZombieState" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
+script = ExtResource("9_xxqss")
+player = NodePath("../..")
+metadata/_custom_type_script = "uid://bnbyntv12075p"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

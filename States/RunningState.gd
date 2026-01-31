@@ -1,7 +1,7 @@
 extends State
 class_name RunningState
 
-@export var player_speed: int
+@onready var player_speed = player.player_run_speed
 
 func _enter():
 	print("[ENTERED]: running state")
