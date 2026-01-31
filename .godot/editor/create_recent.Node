@@ -1,0 +1,15 @@
+res://scripts/interractable_objects/mask_piece.gd
+CollisionShape2D
+Sprite2D
+StaticBody2D
+PointLight2D
+DirectionalLight2D
+ColorRect
+ParallaxLayer
+ParallaxBackground
+Parallax2D
+Label
+TileMapLayer
+WorldEnvironment
+Area2D
+Marker2D

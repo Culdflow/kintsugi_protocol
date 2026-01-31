@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://o6vqujn84h2h"
+path="res://.godot/imported/LEVEL 1 SPACE CLASSICA_01.mp3-5569a12116da47e5cc40915178982b13.mp3str"
+
+[deps]
+
+source_file="res://Music/LEVEL 1 SPACE CLASSICA_01.mp3"
+dest_files=["res://.godot/imported/LEVEL 1 SPACE CLASSICA_01.mp3-5569a12116da47e5cc40915178982b13.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

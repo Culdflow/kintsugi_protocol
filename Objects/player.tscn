@@ -66,50 +66,51 @@ head_marker = NodePath("HeadMarker")
 position = Vector2(34.5, 708.5)
 shape = SubResource("RectangleShape2D_3y5cq")
 
-[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state", "animPlayer", "player")]
+[node name="StateMachine" type="Node" parent="." unique_id=1943296221 node_paths=PackedStringArray("initial_state", "animPlayer", "player")]
 script = ExtResource("3_2i4gt")
 initial_state = NodePath("IdleState")
 animPlayer = NodePath("../AnimationPlayer")
 player = NodePath("..")
 metadata/_custom_type_script = "uid://dqnn5kxwvf0q7"
 
-[node name="RunningState" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
+[node name="RunningState" type="Node" parent="StateMachine" unique_id=360898587 node_paths=PackedStringArray("player")]
 script = ExtResource("4_0ad8t")
-player_speed = 500
+player_speed = 250
 player = NodePath("../..")
 metadata/_custom_type_script = "uid://1h4xg4ikl1ds"
 
-[node name="IdleState" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
+[node name="IdleState" type="Node" parent="StateMachine" unique_id=426172348 node_paths=PackedStringArray("player")]
 script = ExtResource("5_x20fu")
 player = NodePath("../..")
 metadata/_custom_type_script = "uid://qaunyvabp6wm"
 
-[node name="FallingState" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
+[node name="FallingState" type="Node" parent="StateMachine" unique_id=270220526 node_paths=PackedStringArray("player")]
 script = ExtResource("6_0ar0x")
 player = NodePath("../..")
 metadata/_custom_type_script = "uid://cyvkocajs5jd5"
 
-[node name="glidingstate" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
+[node name="glidingstate" type="Node" parent="StateMachine" unique_id=1316481939 node_paths=PackedStringArray("player")]
 script = ExtResource("7_slvmq")
-player_speed = 200
+gravity_speed = 250
+gravity_speed_addr = 250
+player_speed = 150
 player = NodePath("../..")
 metadata/_custom_type_script = "uid://4riw0jv8n4kx"
 
-[node name="jumpingstate" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
+[node name="jumpingstate" type="Node" parent="StateMachine" unique_id=2078445779 node_paths=PackedStringArray("player")]
 script = ExtResource("8_ng3n2")
+jump_height = 250
 player = NodePath("../..")
 metadata/_custom_type_script = "uid://dqlj1ito5qs1c"
 
-[node name="glidejumpstate" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
+[node name="glidejumpstate" type="Node" parent="StateMachine" unique_id=1848188275 node_paths=PackedStringArray("player")]
 script = ExtResource("9_f7am4")
-player_speed = 500
+player_speed = 150
 player = NodePath("../..")
 metadata/_custom_type_script = "uid://c51wc0rpd31jj"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_6jlvs")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1188111938]
+libraries/ = SubResource("AnimationLibrary_6jlvs")
 
 [node name="RightArm" parent="." instance=ExtResource("10_3ye7n")]
 modulate = Color(0.544974, 0.544974, 0.544974, 1)
@@ -131,5 +132,5 @@ position = Vector2(-41, 316)
 [node name="LeftArm" parent="." instance=ExtResource("12_sbav2")]
 position = Vector2(-74, 62)
 
-[node name="HeadMarker" type="Marker2D" parent="."]
+[node name="HeadMarker" type="Marker2D" parent="." unique_id=793052353]
 position = Vector2(0, -108)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bsggn3oh8jets"]
+[gd_scene format=3 uid="uid://bsggn3oh8jets"]
 
 [ext_resource type="Script" uid="uid://cr23ndfqiushd" path="res://scripts/label_object.gd" id="1_1ct8y"]
 [ext_resource type="FontFile" uid="uid://8njuvuyc6m36" path="res://fonts/Roboto-Black.ttf" id="1_2r2oa"]
