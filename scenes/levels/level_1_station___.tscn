@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://dy1bokkvr6540"]
+[gd_scene load_steps=0 format=4 uid="uid://dg8bs25ggoyb6"]
 
 [ext_resource type="Script" uid="uid://cripov04gi3nr" path="res://scenes/levels/level_1_station.gd" id="1_ijrte"]
 [ext_resource type="Texture2D" uid="uid://dtn551nhtllck" path="res://asset/32x32/scifi_boxes_1h1a.png" id="2_tj5wx"]
