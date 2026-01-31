@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://ogbahxc58gdr"]
+[gd_scene load_steps=8 format=3 uid="uid://ogbahxc58gdr"]
 
 [ext_resource type="AudioStream" uid="uid://dx3levjwyarvy" path="res://Music/FX-02b-ui button press.mp3" id="1_p8ccj"]
 [ext_resource type="Script" uid="uid://cmc1qvalhim3j" path="res://UI/main_menu.gd" id="1_tk8dj"]
+[ext_resource type="AudioStream" uid="uid://t1naraoh8ic3" path="res://Music/FX-random-background-ui (1).mp3" id="3_d8nwk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tk8dj"]
 bg_color = Color(0, 0, 0, 1)
@@ -93,4 +94,9 @@ text = "START"
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_p8ccj")
 
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_d8nwk")
+bus = &"music"
+
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
+[connection signal="finished" from="AudioStreamPlayer2" to="." method="_on_audio_stream_player_2_finished"]
