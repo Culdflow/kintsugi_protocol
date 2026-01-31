@@ -1,8 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://b8bjt7c31qe2t"]
+[gd_scene load_steps=14 format=3 uid="uid://bx4mknswv5ys2"]
 
-[ext_resource type="Script" uid="uid://dcudnydipj1lf" path="res://scripts/bodyParts/BodyPart.gd" id="1_vjma2"]
-[ext_resource type="Texture2D" uid="uid://dl70jab1sqo10" path="res://assets/player_sprite/player_upper_arm_right.png" id="2_aijdp"]
-[ext_resource type="Texture2D" uid="uid://jugwjwuixgj7" path="res://assets/player_sprite/player_lower_arm_right.png" id="3_1443f"]
+[ext_resource type="Script" uid="uid://dcudnydipj1lf" path="res://scripts/bodyParts/BodyPart.gd" id="1_mejp4"]
+[ext_resource type="Texture2D" uid="uid://c6lsxfgx8r5qr" path="res://assets/player_sprite/player_upper_arm_left.png" id="2_e0awy"]
+[ext_resource type="Texture2D" uid="uid://c33blngq4hrmk" path="res://assets/player_sprite/player_lower_arm_left.png" id="3_4ywvx"]
 
 [sub_resource type="Animation" id="Animation_j85uf"]
 length = 0.001
@@ -42,7 +42,7 @@ tracks/0/path = NodePath(".:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.533333, 1.53333),
+"times": PackedFloat32Array(0, 0.55, 1.55),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [0.0, -0.0349066, 0.0523599]
@@ -61,19 +61,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0.0, -1.06116]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("lower_arm:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [-0.0282215, -0.558505]
+"values": [0.0, 0.698132]
 }
 
 [sub_resource type="Animation" id="Animation_3ljyv"]
@@ -86,10 +74,10 @@ tracks/0/path = NodePath(".:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.733333, 1),
+"times": PackedFloat32Array(0, 0.2, 0.766667, 1),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [0.0, -0.534071, 0.677188, 0.0]
+"values": [0.0, 0.450295, -0.872665, 0.0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -98,13 +86,13 @@ tracks/1/path = NodePath("lower_arm:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.73),
+"times": PackedFloat32Array(0, 0.2, 0.78),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [-0.0282215, -0.361283, -0.270526]
+"values": [-0.0282215, -0.0872665, -0.275762]
 }
 
-[sub_resource type="Animation" id="Animation_aijdp"]
+[sub_resource type="Animation" id="Animation_mejp4"]
 resource_name = "fallingstate"
 length = 0.2
 tracks/0/type = "value"
@@ -117,7 +105,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0.2),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [-0.785398]
+"values": [0.947714]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -129,38 +117,10 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0.2),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [-0.174533]
+"values": [-0.518363]
 }
 
-[sub_resource type="Animation" id="Animation_fdwl1"]
-resource_name = "glidejumpstate"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, -1.06116]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("lower_arm:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [-0.0282215, -0.558505]
-}
-
-[sub_resource type="Animation" id="Animation_1443f"]
+[sub_resource type="Animation" id="Animation_e0awy"]
 resource_name = "glidingstate"
 length = 0.2
 tracks/0/type = "value"
@@ -173,7 +133,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0.2),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [-0.785398]
+"values": [0.947714]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -185,32 +145,48 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0.2),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [-0.174533]
+"values": [-0.518363]
+}
+
+[sub_resource type="Animation" id="Animation_4ywvx"]
+resource_name = "glidejumpstate"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.698132]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ttn3g"]
 _data = {
 &"RESET": SubResource("Animation_j85uf"),
-&"fallingstate": SubResource("Animation_aijdp"),
-&"glidejumpstate": SubResource("Animation_fdwl1"),
-&"glidingstate": SubResource("Animation_1443f"),
+&"fallingstate": SubResource("Animation_mejp4"),
+&"glidejumpstate": SubResource("Animation_4ywvx"),
+&"glidingstate": SubResource("Animation_e0awy"),
 &"idlestate": SubResource("Animation_kmlb7"),
 &"jumpingstate": SubResource("Animation_ttn3g"),
 &"runningstate": SubResource("Animation_3ljyv")
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1443f"]
-radius = 44.011
-height = 219.81
+radius = 39.7207
+height = 223.109
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fdwl1"]
-radius = 40.2266
-height = 224.844
+radius = 39.0491
+height = 230.134
 
-[node name="RightArm" type="RigidBody2D" node_paths=PackedStringArray("anim_player", "collision1", "collision2", "hold_position")]
+[node name="LeftArm" type="RigidBody2D" node_paths=PackedStringArray("anim_player", "collision1", "collision2", "hold_position")]
 collision_mask = 2
 freeze = true
-script = ExtResource("1_vjma2")
+script = ExtResource("1_mejp4")
 anim_player = NodePath("AnimationPlayer")
 collision1 = NodePath("CollisionShape2D")
 collision2 = NodePath("CollisionShape2D2")
@@ -223,30 +199,29 @@ libraries = {
 }
 
 [node name="upper_arm" type="Sprite2D" parent="."]
-position = Vector2(2, 67)
+position = Vector2(14, 67)
 scale = Vector2(0.32, 0.32)
-texture = ExtResource("2_aijdp")
+texture = ExtResource("2_e0awy")
 
 [node name="lower_arm" type="Sprite2D" parent="."]
-position = Vector2(13, 126)
+position = Vector2(-25, 151)
 rotation = -0.0282215
 scale = Vector2(0.32, 0.32)
-texture = ExtResource("3_1443f")
+texture = ExtResource("3_4ywvx")
 offset = Vector2(-32, 341)
-flip_h = true
 
 [node name="Marker2D" type="Marker2D" parent="lower_arm"]
-position = Vector2(-2.80711, 560.144)
+position = Vector2(80.9999, 552.488)
 rotation = 0.0282215
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(10, 79)
-rotation = -0.0188632
+position = Vector2(-5, 94)
+rotation = 0.134552
 shape = SubResource("CapsuleShape2D_1443f")
 disabled = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(12, 242)
-rotation = -0.0443375
+position = Vector2(-6, 271)
+rotation = -0.134927
 shape = SubResource("CapsuleShape2D_fdwl1")
 disabled = true

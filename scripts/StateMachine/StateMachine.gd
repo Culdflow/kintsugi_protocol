@@ -36,6 +36,5 @@ func _on_child_transition(state, new_state_name):
 		current_state._exit()
 	new_state._enter()
 	current_state = new_state
-	animPlayer.stop()
 	animPlayer.play(current_state.name.to_lower())
 	player.play_limbs_anim(current_state.name.to_lower())

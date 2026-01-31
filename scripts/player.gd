@@ -61,11 +61,14 @@ func _lose_limb(limb:BodyPart):
 		rightArm = null
 	if (limb == rightLeg):
 		rightLeg = null
+	var limb_scale = limb.scale
+	print("[SCALE LIMB]: ", limb_scale)
+	var limb_pos = limb.global_position
 	var limb_scene := limb.scene_file_path
-	var new_limb: BodyPart = load(limb_scene).instantiate()
-	new_limb._limb_lost(limb.global_position)
 	limb.queue_free()
+	var new_limb: BodyPart = load(limb_scene).instantiate()
 	get_parent().add_child(new_limb)
+	new_limb._limb_lost(limb_pos, limb_scale)
 
 func pickup(obj: PickupObject):
 	var arm: BodyPart = null
