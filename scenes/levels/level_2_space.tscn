@@ -746,7 +746,7 @@ position = Vector2(8.783203, -24.666664)
 shape = SubResource("RectangleShape2D_vau20")
 
 [node name="Idle" type="Sprite2D" parent="Node2D/Exit/CollisionShape2D" unique_id=417000660]
-position = Vector2(3.1130238, 1.6666632)
+position = Vector2(0.2223804, 0.77778107)
 scale = Vector2(1.9490955, 2.6736112)
 texture = ExtResource("13_0mt5u")
 
