@@ -15,7 +15,7 @@ const gravity_speed_MAX = 500
 
 
 func _physics_process(delta: float) -> void:
-	if (Input.is_action_just_pressed("up") && is_on_floor()):
+	if (Input.is_action_just_pressed("up") && is_on_floor() && (leftLeg != null || rightLeg != null)):
 		state_machine.current_state.Transitioned.emit(state_machine.current_state, "jumpingstate")
 	if (is_on_floor()):
 		gravity_speed = 0
@@ -66,6 +66,8 @@ func _lose_limb(limb:BodyPart):
 	new_limb._limb_lost(limb.global_position)
 	limb.queue_free()
 	get_parent().add_child(new_limb)
+	if (leftLeg == null && rightLeg == null):
+		state_machine.current_state.Transitioned.emit(state_machine.current_state, "zombiestate")
 
 func pickup(obj: PickupObject):
 	var arm: BodyPart = null

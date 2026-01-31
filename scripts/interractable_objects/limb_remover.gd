@@ -10,7 +10,6 @@ enum limbs
 var limb_accepted: BodyPart
 
 func _interract(player: Player_sc):
-	
 	if limb_asked == limbs.LEFT_LEG:
 		limb_accepted = player.leftLeg
 	if (limb_asked == limbs.RIGHT_LEG):

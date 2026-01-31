@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://nnojcwkwaxf7"]
+[gd_scene format=3 uid="uid://nnojcwkwaxf7"]
 
 [ext_resource type="Script" uid="uid://bt1naj0q1vcey" path="res://scripts/player.gd" id="1_3y5cq"]
 [ext_resource type="Texture2D" uid="uid://cvcb6l6ch6dir" path="res://icon.svg" id="1_y0qk3"]
@@ -10,34 +10,65 @@
 [ext_resource type="Script" uid="uid://dqlj1ito5qs1c" path="res://States/JumpingState.gd" id="8_ng3n2"]
 [ext_resource type="Script" uid="uid://c51wc0rpd31jj" path="res://States/glideJumpState.gd" id="9_f7am4"]
 [ext_resource type="PackedScene" uid="uid://b8bjt7c31qe2t" path="res://Objects/limbs/right_arm.tscn" id="10_3ye7n"]
+[ext_resource type="Script" uid="uid://1a8yb6aij7i1" path="res://States/ZombieState.gd" id="10_zombie"]
 [ext_resource type="PackedScene" uid="uid://bu3asabblrhl4" path="res://Objects/limbs/left_leg.tscn" id="12_6jlvs"]
+[ext_resource type="PackedScene" uid="uid://ch4hsgyay27kn" path="res://Objects/limbs/left_arm.tscn" id="13_3ye7n"]
+[ext_resource type="PackedScene" uid="uid://b0fw0funoxfgc" path="res://Objects/limbs/right_leg.tscn" id="14_xxqss"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3y5cq"]
 size = Vector2(120, 20)
 
-[sub_resource type="Animation" id="Animation_3ye7n"]
-resource_name = "idlestate"
-loop_mode = 1
-
 [sub_resource type="Animation" id="Animation_xxqss"]
 length = 0.001
 
-[sub_resource type="Animation" id="Animation_6jlvs"]
-resource_name = "runningstate"
+[sub_resource type="Animation" id="Animation_hyl1l"]
+resource_name = "fallingstate"
+
+[sub_resource type="Animation" id="Animation_eq7mc"]
+resource_name = "glidejumpstate"
+
+[sub_resource type="Animation" id="Animation_sbav2"]
+resource_name = "glidingstate"
+
+[sub_resource type="Animation" id="Animation_3ye7n"]
+resource_name = "idlestate"
 loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Head:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_0ht63"]
 resource_name = "jumpingstate"
 length = 0.2
 
-[sub_resource type="Animation" id="Animation_hyl1l"]
-resource_name = "fallingstate"
+[sub_resource type="Animation" id="Animation_6jlvs"]
+resource_name = "runningstate"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Head:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.08, -0.08, 0.08, -0.08]
+}
 
-[sub_resource type="Animation" id="Animation_sbav2"]
-resource_name = "glidingstate"
-
-[sub_resource type="Animation" id="Animation_eq7mc"]
-resource_name = "glidejumpstate"
+[sub_resource type="Animation" id="Animation_zombie"]
+resource_name = "zombiestate"
+loop_mode = 1
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6jlvs"]
 _data = {
@@ -47,81 +78,93 @@ _data = {
 &"glidingstate": SubResource("Animation_sbav2"),
 &"idlestate": SubResource("Animation_3ye7n"),
 &"jumpingstate": SubResource("Animation_0ht63"),
-&"runningstate": SubResource("Animation_6jlvs")
+&"runningstate": SubResource("Animation_6jlvs"),
+&"zombiestate": SubResource("Animation_zombie")
 }
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("leftLeg", "rightArm", "state_machine", "head_marker")]
+[node name="Player" type="CharacterBody2D" unique_id=467173255 node_paths=PackedStringArray("leftLeg", "rightLeg", "leftArm", "rightArm", "state_machine", "head_marker")]
 collision_mask = 2
 script = ExtResource("1_3y5cq")
 leftLeg = NodePath("leftLeg")
+rightLeg = NodePath("RightLeg")
+leftArm = NodePath("LeftArm")
 rightArm = NodePath("RightArm")
 state_machine = NodePath("StateMachine")
 head_marker = NodePath("HeadMarker")
 
-[node name="Torso" type="Sprite2D" parent="."]
-position = Vector2(0, 66)
-scale = Vector2(1, 2.03125)
+[node name="LeftArm" parent="." unique_id=1394733135 instance=ExtResource("13_3ye7n")]
+position = Vector2(-24, -50)
+
+[node name="Torso" type="Sprite2D" parent="." unique_id=658614257]
+position = Vector2(-12.500001, 66)
+scale = Vector2(0.5703125, 2.03125)
 texture = ExtResource("1_y0qk3")
 
-[node name="Head" type="Sprite2D" parent="."]
-position = Vector2(1, -112)
-scale = Vector2(0.777344, 0.6875)
+[node name="Head" type="Sprite2D" parent="." unique_id=417611277]
+position = Vector2(-13, -119)
+scale = Vector2(0.84179693, 0.82031244)
 texture = ExtResource("1_y0qk3")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=810561834]
 position = Vector2(0, 360)
 shape = SubResource("RectangleShape2D_3y5cq")
 
-[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state", "animPlayer", "player")]
+[node name="StateMachine" type="Node" parent="." unique_id=1488333894 node_paths=PackedStringArray("initial_state", "animPlayer", "player")]
 script = ExtResource("3_2i4gt")
 initial_state = NodePath("IdleState")
 animPlayer = NodePath("../AnimationPlayer")
 player = NodePath("..")
 metadata/_custom_type_script = "uid://dqnn5kxwvf0q7"
 
-[node name="RunningState" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
+[node name="RunningState" type="Node" parent="StateMachine" unique_id=735745888 node_paths=PackedStringArray("player")]
 script = ExtResource("4_0ad8t")
 player_speed = 500
 player = NodePath("../..")
 metadata/_custom_type_script = "uid://1h4xg4ikl1ds"
 
-[node name="IdleState" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
+[node name="IdleState" type="Node" parent="StateMachine" unique_id=1628575754 node_paths=PackedStringArray("player")]
 script = ExtResource("5_x20fu")
 player = NodePath("../..")
 metadata/_custom_type_script = "uid://qaunyvabp6wm"
 
-[node name="FallingState" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
+[node name="FallingState" type="Node" parent="StateMachine" unique_id=310161835 node_paths=PackedStringArray("player")]
 script = ExtResource("6_0ar0x")
 player = NodePath("../..")
 metadata/_custom_type_script = "uid://cyvkocajs5jd5"
 
-[node name="glidingstate" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
+[node name="glidingstate" type="Node" parent="StateMachine" unique_id=2046845887 node_paths=PackedStringArray("player")]
 script = ExtResource("7_slvmq")
 player_speed = 200
 player = NodePath("../..")
 metadata/_custom_type_script = "uid://4riw0jv8n4kx"
 
-[node name="jumpingstate" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
+[node name="jumpingstate" type="Node" parent="StateMachine" unique_id=1290777633 node_paths=PackedStringArray("player")]
 script = ExtResource("8_ng3n2")
 player = NodePath("../..")
 metadata/_custom_type_script = "uid://dqlj1ito5qs1c"
 
-[node name="glidejumpstate" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
+[node name="glidejumpstate" type="Node" parent="StateMachine" unique_id=1306843526 node_paths=PackedStringArray("player")]
 script = ExtResource("9_f7am4")
 player_speed = 500
 player = NodePath("../..")
 metadata/_custom_type_script = "uid://c51wc0rpd31jj"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_6jlvs")
-}
+[node name="ZombieState" type="Node" parent="StateMachine" unique_id=278275085 node_paths=PackedStringArray("player")]
+script = ExtResource("10_zombie")
+player = NodePath("../..")
+metadata/_custom_type_script = "uid://1a8yb6aij7i1"
 
-[node name="leftLeg" parent="." instance=ExtResource("12_6jlvs")]
-position = Vector2(27, 200)
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1532364433]
+libraries/ = SubResource("AnimationLibrary_6jlvs")
 
-[node name="RightArm" parent="." instance=ExtResource("10_3ye7n")]
-position = Vector2(-86, -48)
+[node name="leftLeg" parent="." unique_id=1823076633 instance=ExtResource("12_6jlvs")]
+position = Vector2(-8, 199)
 
-[node name="HeadMarker" type="Marker2D" parent="."]
+[node name="RightArm" parent="." unique_id=630150079 instance=ExtResource("10_3ye7n")]
+position = Vector2(-9, -46)
+
+[node name="HeadMarker" type="Marker2D" parent="." unique_id=887814909]
 position = Vector2(0, -108)
+
+[node name="RightLeg" parent="." unique_id=692757033 instance=ExtResource("14_xxqss")]
+position = Vector2(-8, 200)

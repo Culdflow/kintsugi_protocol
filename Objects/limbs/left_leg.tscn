@@ -1,14 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://bu3asabblrhl4"]
+[gd_scene format=3 uid="uid://bu3asabblrhl4"]
 
 [ext_resource type="Script" uid="uid://dcudnydipj1lf" path="res://scripts/bodyParts/BodyPart.gd" id="1_kmlb7"]
 [ext_resource type="Texture2D" uid="uid://cvcb6l6ch6dir" path="res://icon.svg" id="2_3ljyv"]
 
-[sub_resource type="Animation" id="Animation_kmlb7"]
-resource_name = "idlestate"
-
-[sub_resource type="Animation" id="Animation_3ljyv"]
-resource_name = "runningstate"
-loop_mode = 1
+[sub_resource type="Animation" id="Animation_j85uf"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -16,14 +12,14 @@ tracks/0/path = NodePath(".:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.733333, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.0, -0.872665, 1.12923, 0.0]
+"values": [0.0]
 }
 
-[sub_resource type="Animation" id="Animation_j85uf"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_kmlb7"]
+resource_name = "idlestate"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -53,6 +49,22 @@ tracks/0/keys = {
 "values": [0.0, -1.06116]
 }
 
+[sub_resource type="Animation" id="Animation_3ljyv"]
+resource_name = "runningstate"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [1.12923, 0.0, -0.872665, 0.0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ttn3g"]
 _data = {
 &"RESET": SubResource("Animation_j85uf"),
@@ -65,26 +77,23 @@ _data = {
 radius = 20.5
 height = 170.0
 
-[node name="leftLeg" type="RigidBody2D" node_paths=PackedStringArray("anim_player", "collision", "hold_position")]
+[node name="rightLeg" type="RigidBody2D" unique_id=1477341574 node_paths=PackedStringArray("anim_player", "collision")]
 collision_mask = 2
 freeze = true
 script = ExtResource("1_kmlb7")
 anim_player = NodePath("AnimationPlayer")
 collision = NodePath("CollisionShape2D")
-hold_position = NodePath("")
 metadata/_custom_type_script = "uid://dcudnydipj1lf"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_ttn3g")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=857577903]
+libraries/ = SubResource("AnimationLibrary_ttn3g")
 
-[node name="Icon" type="Sprite2D" parent="."]
+[node name="Icon" type="Sprite2D" parent="." unique_id=248689837]
 position = Vector2(0, 73)
 scale = Vector2(0.32, 1.32)
 texture = ExtResource("2_3ljyv")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=966364958]
 position = Vector2(-0.5, 74)
 shape = SubResource("CapsuleShape2D_kmlb7")
 disabled = true
