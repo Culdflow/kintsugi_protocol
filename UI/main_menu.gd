@@ -1,8 +1,6 @@
 extends Control
 
 
-func _ready() -> void:
-	$AudioStreamPlayer2.play()
 
 func _on_button_button_down() -> void:
 	$AudioStreamPlayer.play()
@@ -12,3 +10,4 @@ func _on_button_button_down() -> void:
 
 func _on_audio_stream_player_2_finished() -> void:
 	$AudioStreamPlayer2.play()
+	SceneManager.change_scene("res://UI/main_anim.tscn")
