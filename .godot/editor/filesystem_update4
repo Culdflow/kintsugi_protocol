@@ -1,1 +1,2 @@
 res://scenes/levels/level_2_space.tscn
+res://scripts/interractable_objects/platform.gd
