@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://criyctw4i076m"]
+[gd_scene format=3 uid="uid://criyctw4i076m"]
 
 [ext_resource type="PackedScene" uid="uid://nnojcwkwaxf7" path="res://Objects/player.tscn" id="1_gmbtb"]
 [ext_resource type="PackedScene" uid="uid://drulu15n7huhb" path="res://Objects/ObjectTest/Objet.tscn" id="2_yd3nq"]
@@ -20,65 +20,66 @@ radius = 256.977
 radius = 266.0
 height = 1020.0
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" unique_id=349898023]
+position = Vector2(4, 0)
 
-[node name="Player" parent="." instance=ExtResource("1_gmbtb")]
+[node name="Player" parent="." unique_id=387216822 instance=ExtResource("1_gmbtb")]
 position = Vector2(554, -125)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=684138476]
 collision_layer = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=271666480]
 position = Vector2(357, 595.5)
 shape = SubResource("RectangleShape2D_gmbtb")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1439578027]
 zoom = Vector2(0.3, 0.3)
 
-[node name="Objet1" parent="." instance=ExtResource("2_yd3nq")]
+[node name="Objet1" parent="." unique_id=184339756 instance=ExtResource("2_yd3nq")]
 position = Vector2(1000, 385)
 
-[node name="limbRemover" type="Area2D" parent="."]
+[node name="limbRemover" type="Area2D" parent="." unique_id=1258303654]
 position = Vector2(-778, 448)
 script = ExtResource("3_lkiuq")
 limb_asked = 1
 text_message = "Cost: Left Leg"
 metadata/_custom_type_script = "uid://bfn8bqedktcgo"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="limbRemover"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="limbRemover" unique_id=1478933684]
 shape = SubResource("CircleShape2D_xsdrx")
 
-[node name="Icon" type="Sprite2D" parent="limbRemover"]
+[node name="Icon" type="Sprite2D" parent="limbRemover" unique_id=134702981]
 texture = ExtResource("4_qpbyx")
 
-[node name="limbRemover2" type="Area2D" parent="."]
+[node name="limbRemover2" type="Area2D" parent="." unique_id=1578137582]
 position = Vector2(-1311, 448)
 script = ExtResource("3_lkiuq")
 text_message = "Cost: Left Leg"
 metadata/_custom_type_script = "uid://bfn8bqedktcgo"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="limbRemover2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="limbRemover2" unique_id=1808530576]
 shape = SubResource("CircleShape2D_xsdrx")
 
-[node name="Icon" type="Sprite2D" parent="limbRemover2"]
+[node name="Icon" type="Sprite2D" parent="limbRemover2" unique_id=1541442929]
 texture = ExtResource("4_qpbyx")
 
-[node name="maskPiece" type="Area2D" parent="."]
+[node name="maskPiece" type="Area2D" parent="." unique_id=1167828096]
 position = Vector2(0, 424)
 script = ExtResource("5_qpbyx")
 metadata/_custom_type_script = "uid://0fdi3lykyvvd"
 
-[node name="Icon" type="Sprite2D" parent="maskPiece"]
+[node name="Icon" type="Sprite2D" parent="maskPiece" unique_id=1164651062]
 texture = ExtResource("4_qpbyx")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="maskPiece"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="maskPiece" unique_id=1174122948]
 shape = SubResource("CircleShape2D_sjbnr")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=1483899368]
 position = Vector2(-2005, 0)
 script = ExtResource("6_xsdrx")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2094706382]
 shape = SubResource("CapsuleShape2D_qpbyx")
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
