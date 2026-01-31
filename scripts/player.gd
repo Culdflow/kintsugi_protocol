@@ -9,6 +9,7 @@ class_name Player_sc
 @export var state_machine: StateMachine
 @export var head_marker: Marker2D
 const gravity_speed_MAX = 500
+var mask_piece = 0
 @export var gravity_speed = 0
 @export var gravity_speed_addr = 50
 @export var player_run_speed: int = 500
@@ -19,11 +20,12 @@ const gravity_speed_MAX = 500
 @export var one_arm_speed: int = 250
 @export var no_arms_speed: int = 50
 @export var arm_rotation_speed: int = 10
+@export var audio: AudioStreamPlayer
 
 
 
 func _physics_process(delta: float) -> void:
-	if (Input.is_action_just_pressed("up") && is_on_floor() && rightLeg && leftLeg):
+	if (Input.is_action_just_pressed("up") && is_on_floor() && (rightLeg || leftLeg)):
 		state_machine.current_state.Transitioned.emit(state_machine.current_state, "jumpingstate")
 	if (is_on_floor()):
 		gravity_speed = 0
@@ -106,7 +108,11 @@ func _die():
 		_lose_limb(rightArm)
 	if (rightLeg):
 		_lose_limb(rightLeg)
-	get_tree().create_timer(10).timeout.connect(_death_timer_timeout)
+	get_tree().create_timer(1).timeout.connect(_death_timer_timeout)
 
 func _death_timer_timeout():
-	queue_free()
+	get_tree().change_scene_to_file(get_parent().scene_file_path)
+
+
+func _on_audio_stream_player_finished() -> void:
+	audio.play()

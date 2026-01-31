@@ -33,6 +33,7 @@ func _physics_process(delta: float) -> void:
 		_tween_finished()
 
 func _interract(player: Player_sc):
+	player.mask_piece = 1
 	_label_object_inst = _label_object.instantiate()
 	get_parent().add_child(_label_object_inst)
 	_label_object_inst._spawn(global_position + Vector2(0, -100), "retrieved mask piece", Color.GREEN)

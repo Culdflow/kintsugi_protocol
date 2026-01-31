@@ -8,4 +8,4 @@ func _ready():
 func _on_body_entered(body):
 	if body is CharacterBody2D:
 		print("EXIT TRIGGERED")
-		level_completed.emit()
+		get_tree().change_scene_to_file("res://scenes/levels/level_2_space.tscn")
