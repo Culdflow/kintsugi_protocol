@@ -63,7 +63,7 @@ func _lose_limb(limb:BodyPart):
 		rightLeg = null
 	var limb_scene := limb.scene_file_path
 	var new_limb: BodyPart = load(limb_scene).instantiate()
-	new_limb._limb_lost(limb.global_position)
+	new_limb._limb_lost(limb.global_position, 0.08)
 	limb.queue_free()
 	get_parent().add_child(new_limb)
 
