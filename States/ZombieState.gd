@@ -48,7 +48,6 @@ func _enter():
 func _exit():
 	print("[EXITED]: Zombie state")
 	var torso = player.get_node("Torso")
-	var head = player.get_node("Head")
 	var collision = player.get_node("CollisionShape2D")
 
 	torso.position = original_torso_pos

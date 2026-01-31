@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://nnojcwkwaxf7"]
+[gd_scene load_steps=25 format=3 uid="uid://nnojcwkwaxf7"]
 
 [ext_resource type="Script" uid="uid://bt1naj0q1vcey" path="res://scripts/player.gd" id="1_3y5cq"]
 [ext_resource type="Script" uid="uid://dqnn5kxwvf0q7" path="res://scripts/StateMachine/StateMachine.gd" id="3_2i4gt"]
@@ -42,6 +42,9 @@ length = 0.2
 resource_name = "runningstate"
 loop_mode = 1
 
+[sub_resource type="Animation" id="Animation_cfctp"]
+resource_name = "zombiestate"
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6jlvs"]
 _data = {
 &"RESET": SubResource("Animation_xxqss"),
@@ -50,7 +53,8 @@ _data = {
 &"glidingstate": SubResource("Animation_sbav2"),
 &"idlestate": SubResource("Animation_3ye7n"),
 &"jumpingstate": SubResource("Animation_0ht63"),
-&"runningstate": SubResource("Animation_6jlvs")
+&"runningstate": SubResource("Animation_6jlvs"),
+&"zombiestate": SubResource("Animation_cfctp")
 }
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("leftLeg", "rightLeg", "leftArm", "rightArm", "state_machine", "head_marker")]
